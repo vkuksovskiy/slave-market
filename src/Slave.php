@@ -9,6 +9,8 @@ namespace SlaveMarket;
  */
 class Slave
 {
+    const WORK_DAY_LIMIT_IN_HOURS = 16;
+
     /** @var int id раба */
     protected $id;
 

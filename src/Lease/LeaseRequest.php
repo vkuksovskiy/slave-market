@@ -2,6 +2,8 @@
 
 namespace SlaveMarket\Lease;
 
+use DateTime;
+
 /**
  * Запрос на аренду раба
  *

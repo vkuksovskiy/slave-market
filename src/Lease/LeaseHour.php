@@ -11,6 +11,8 @@ use DateTime;
  */
 class LeaseHour
 {
+    const TIME_FORMAT = 'Y-m-d H';
+
     /**
      * Время начала часа
      *
@@ -25,7 +27,7 @@ class LeaseHour
      */
     public function __construct(string $dateTime)
     {
-        $this->dateTime = DateTime::createFromFormat('Y-m-d H', $dateTime);
+        $this->dateTime = DateTime::createFromFormat(self::TIME_FORMAT, $dateTime);
     }
 
     /**
@@ -35,7 +37,7 @@ class LeaseHour
      */
     public function getDateString(): string
     {
-        return $this->dateTime->format('Y-m-d H');
+        return $this->dateTime->format(self::TIME_FORMAT);
     }
 
     /**
@@ -66,5 +68,14 @@ class LeaseHour
     public function getHour(): string
     {
         return $this->dateTime->format('H');
+    }
+
+    /**
+     * @param LeaseHour $hour
+     * @return bool
+     */
+    public function equals(LeaseHour $hour): bool
+    {
+        return $hour->getDateString() === $this->getDateString();
     }
 }
